@@ -2,17 +2,17 @@
 const key = 'apikey=ff0d50dd'
 const url = `http://www.omdbapi.com/?`
 
-const query = ref("");
+const query = ref("batman");
 const movies = ref<any[]>([])
 
 const search = async () => {
     const fullUrl = url + `s=${query.value}&${key}`;
-    console.log('Full URL:', fullUrl);
     // @ts-ignore
     const { Search } = await $fetch(fullUrl)
-    console.log('Search:', Search);
+    console.log('Moves Res:', Search);
     movies.value = Search;
 }
+search();
 </script>
 
 <template>

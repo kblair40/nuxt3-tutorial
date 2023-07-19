@@ -4,12 +4,11 @@ const route = useRoute();
 const key = 'apikey=ff0d50dd'
 const url = `http://www.omdbapi.com/?`
 
-
-const fullUrl = url + `i=${route.params.id}&${key}`;
-
 // Using useAsyncData prevents duplicate server/client fetches
-const { data } = useAsyncData(() => {
-    return $fetch(fullUrl)
+// Key is first argument.  Nuxt caches api requests, but if the key is 
+//  different, then it will refetch
+const { data } = useAsyncData(`/movies/${route.params.id}`,() => {
+    return $fetch(url + `i=${route.params.id}&${key}`)
 })
 
 </script>
