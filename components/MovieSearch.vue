@@ -2,7 +2,7 @@
 const key = 'apikey=ff0d50dd'
 const url = `http://www.omdbapi.com/?`
 
-const query = ref("batman");
+const query = ref("");
 const movies = ref<any[]>([])
 
 const search = async () => {
@@ -12,7 +12,6 @@ const search = async () => {
     console.log('Moves Res:', Search);
     movies.value = Search;
 }
-search();
 </script>
 
 <template>
